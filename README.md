@@ -22,6 +22,7 @@ No AI at runtime, no server, no accounts, no API keys. A rules-and-templates eng
 | `src/engine/` | Pure functions that pick the right items for the inputs, time them from kick-off, and fill in the names (`plan.ts`, `time.ts`, `checklist.ts`). Unit-tested in `plan.test.ts`. |
 | `src/components/`, `src/pages/` | The React interface. |
 | `sw/sw.js` | A small service worker so the site works offline after the first visit. |
+| `scripts/deploy.mjs` | Publishes the built site to the `gh-pages` branch (`npm run deploy`). |
 | `tests/` | Playwright smoke tests at desktop and iPhone size. They also save review screenshots to `docs/screenshots/`. |
 
 Captions are starters. Text in `[square brackets]` is for the user to fill in on the day. The only numbers a plan contains are the ones the user typed (score, scorers, times), which a unit test checks.
@@ -65,22 +66,17 @@ To try the built site yourself: `npm run build`, then `npm run preview`, then op
 
 ## Publish on GitHub Pages
 
-Not done yet: this waits for Thomas's approval. The site is set up for the address `https://thomas-bailey-9.github.io/matchday/` (see `base` in `vite.config.ts`).
+The site lives at https://thomas-bailey-9.github.io/matchday/ (see `base` in `vite.config.ts`). The code is in the `main` branch; the finished site is in the `gh-pages` branch, which GitHub Pages serves.
 
-1. On github.com, signed in as **Thomas-bailey-9**, click **+** (top right) → **New repository**. Name it `matchday`, choose **Public**, leave every "Add" box unticked, and click **Create repository**.
-2. In PowerShell in `C:\Dev\Matchday`:
-
-```bash
-git remote add origin https://github.com/Thomas-bailey-9/matchday.git
-```
+**To publish an update**, open PowerShell in `C:\Dev\Matchday` (File Explorer → the folder → click the address bar → type `powershell` → Enter), then:
 
 ```bash
-git push -u origin main
+npm run deploy
 ```
 
-3. On the repository page: **Settings** → **Pages** → under **Build and deployment**, set **Source** to **GitHub Actions**.
-4. Go to the **Actions** tab, open **Deploy to GitHub Pages** and click **Run workflow** (it also runs by itself on every push to `main`). It runs the unit tests, builds the site and publishes it, using `.github/workflows/pages.yml`.
-5. After it finishes (the **Actions** tab shows a green tick), the site is live at https://thomas-bailey-9.github.io/matchday/.
+It builds the site and pushes it to `gh-pages`. The live site updates within a couple of minutes. Remember to commit and push your code changes to `main` too.
+
+**One-off set-up (already done once):** on the repository page, **Settings** → **Pages** → **Source: Deploy from a branch** → branch `gh-pages`, folder `/ (root)` → **Save**.
 
 ### Add it to an iPhone home screen
 

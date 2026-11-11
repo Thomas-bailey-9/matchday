@@ -13,7 +13,8 @@
     "preview": "vite preview --host --port 4173 --strictPort",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "icons": "node scripts/make-icons.mjs"
+    "icons": "node scripts/make-icons.mjs",
+    "deploy": "node scripts/deploy.mjs"
   },
   "dependencies": {
     "@fontsource/barlow-condensed": "^5.3.0",
