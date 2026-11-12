@@ -27,6 +27,6 @@ Last updated: 11 November 2026. Code pushed to `Thomas-bailey-9/matchday` (main)
 
 1. **Thomas to review** the site and the screenshots.
 2. **Thomas to check the How I made this wording**, especially what ChatGPT and Claude each did (`src/pages/HowIMadeThis.tsx`). It currently says they "helped me shape the idea and write the code and first drafts of the content"; adjust if that is not accurate.
-3. **Pages setting** (Thomas): Settings → Pages → Deploy from a branch → `gh-pages` / root. Then check the live site.
+3. **Live** since 12 November 2026 at https://thomas-bailey-9.github.io/matchday/ (Pages: Deploy from a branch, `gh-pages` / root). Checked in Chrome at desktop and iPhone size, including offline.
 4. **Real iPhone test** (pending, Thomas): open the live site in Safari, add it to the home screen, try it with flight mode on, and try Copy checklist and Print.
 5. Optional later: a share link that carries the fixture in the URL; more storylines (e.g. first home game, pre-season).
